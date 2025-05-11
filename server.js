@@ -470,7 +470,7 @@ app.get('/api/rooms/list/all', async (req, res) => {
 
 
 app.get("/",()=>{
-  console.log("Server is running");
+  res.send("Hello from the server");
 })
 // Booking Routes
 app.get('/api/bookings', async (req, res) => {
