@@ -8,7 +8,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
 app.use(cors({
   origin: '*',  // Allow all origins
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -469,6 +468,10 @@ app.get('/api/rooms/list/all', async (req, res) => {
 });
 
 
+app.get("/", (req, res) => {
+  res.send("Hello from the server");
+});
+
 app.get("/",()=>{
   res.send("Hello from the server");
 })
@@ -578,7 +581,12 @@ app.get('/api/cities', async (req, res) => {
 // Run seed data function
 seedData();
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+// Export the Express app for Vercel
+export default app;
