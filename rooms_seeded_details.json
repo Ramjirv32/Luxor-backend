@@ -1,0 +1,38 @@
+{
+  "totalRooms": 53,
+  "hotelsWithRooms": 8,
+  "roomsPerHotel": [
+    {
+      "hotelId": "684336483368122f5502d5df",
+      "roomCount": 4
+    },
+    {
+      "hotelId": "684336483368122f5502d5e0",
+      "roomCount": 6
+    },
+    {
+      "hotelId": "684336483368122f5502d5e1",
+      "roomCount": 8
+    },
+    {
+      "hotelId": "684336483368122f5502d5e2",
+      "roomCount": 8
+    },
+    {
+      "hotelId": "684336483368122f5502d5e3",
+      "roomCount": 6
+    },
+    {
+      "hotelId": "684336483368122f5502d5e4",
+      "roomCount": 6
+    },
+    {
+      "hotelId": "684336483368122f5502d5e5",
+      "roomCount": 7
+    },
+    {
+      "hotelId": "684336483368122f5502d5e6",
+      "roomCount": 8
+    }
+  ]
+}

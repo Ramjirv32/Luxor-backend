@@ -116,8 +116,31 @@ app.get('/api/hotels/:id', async (req, res) => {
   }
 });
 
-
-
+app.get('/api/hotels/:hotelId/rooms', async (req, res) => {
+  try {
+    const { hotelId } = req.params;
+    
+    // Validate MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(hotelId)) {
+      return res.status(400).json({ message: 'Invalid hotel ID format' });
+    }
+    
+    // Find all rooms that belong to this hotel
+    const rooms = await Room.find({ hotel: hotelId });
+    
+    if (!rooms || rooms.length === 0) {
+      return res.status(404).json({ 
+        message: 'No rooms found for this hotel',
+        hotelId: hotelId
+      });
+    }
+    
+    res.status(200).json(rooms);
+  } catch (error) {
+    console.error(`Error fetching hotel rooms: ${error.message}`);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
 
 app.post('/api/hotels', async (req, res) => {
   try {
@@ -199,49 +222,55 @@ app.get('/api/rooms', async (req, res) => {
   }
 });
 
-// Add this route or modify your existing rooms/:id route
+// Add or update the room details endpoint
 app.get('/api/rooms/:id', async (req, res) => {
   try {
-    console.log(`Looking for room with ID: ${req.params.id}`);
+    const { id } = req.params;
     
-    const room = await Room.findById(req.params.id).populate({
+    // Log the request ID and validate it
+    console.log(`Room details request for ID: ${id}`);
+    
+    if (!id || id === 'undefined') {
+      return res.status(400).json({ 
+        message: 'Invalid room ID provided',
+        details: 'The room ID is undefined or invalid'
+      });
+    }
+    
+    // Check if it's a valid MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ 
+        message: 'Invalid room ID format',
+        details: 'The provided ID does not match MongoDB ObjectId format'
+      });
+    }
+    
+    // Find the room by ID with populated hotel
+    const room = await Room.findById(id).populate({
       path: 'hotel',
-      populate: {
-        path: 'owner'
-      }
+      model: 'Hotel'
     });
     
     if (!room) {
-      console.log(`Room not found with ID: ${req.params.id}`);
-      return res.status(404).json({ message: "Room not found" });
+      return res.status(404).json({ 
+        message: 'Room not found',
+        details: `No room exists with ID: ${id}`
+      });
     }
     
-    // Return the room with a properly formatted structure
-    return res.status(200).json({
-      _id: room._id,
-      id: room._id, // Add this for frontend compatibility
-      roomType: room.roomType,
-      pricePerNight: room.pricePerNight,
-      capacity: room.capacity || 2,
-      bedType: room.bedType || "King",
-      amenities: room.amenities || [],
-      images: room.images || [],
-      description: room.description || "",
-      isAvailable: room.isAvailable !== false,
-      hotel: {
-        id: room.hotel._id, // Add this for frontend compatibility
-        _id: room.hotel._id,
-        name: room.hotel.name,
-        address: room.hotel.address,
-        city: room.hotel.city,
-        contact: room.hotel.contact || "Not Available",
-        description: room.hotel.description || `A beautiful hotel in ${room.hotel.city}`
-      }
-    });
+    // Add debugging info if needed
+    console.log(`Room found: ${room.roomType} in ${room.hotel ? room.hotel.name : 'unknown hotel'}`);
+    
+    // Return the room data
+    res.status(200).json(room);
     
   } catch (error) {
-    console.error(`Error fetching room: ${error.message}`);
-    res.status(500).json({ message: "Server error", error: error.message });
+    console.error(`Error fetching room details: ${error.message}`);
+    res.status(500).json({ 
+      message: 'Server error', 
+      error: error.message,
+      stack: process.env.NODE_ENV === 'production' ? undefined : error.stack
+    });
   }
 });
 
