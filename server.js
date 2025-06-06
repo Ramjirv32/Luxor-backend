@@ -8,9 +8,11 @@ import User from './models/User.js';
 import Hotel from './models/Hotel.js';
 import Room from './models/Room.js';
 import Booking from './models/Booking.js';
+import Newsletter from './models/Newsletter.js';
 
 // Import utilities
 import seedData from './utils/seed.js';
+import { sendSubscriptionEmail } from './utils/emailService.js';
 
 dotenv.config();
 
@@ -410,6 +412,71 @@ app.get('/api/cities', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// Newsletter subscription endpoint
+app.post('/api/newsletter/subscribe', async (req, res) => {
+  try {
+    const { email } = req.body;
+    
+    if (!email) {
+      return res.status(400).json({ message: 'Email is required' });
+    }
+
+    // Check if email already exists
+    let subscriber = await Newsletter.findOne({ email });
+    
+    if (subscriber) {
+      if (subscriber.subscribed) {
+        return res.status(200).json({ message: 'Email already subscribed' });
+      } else {
+        // Re-subscribe
+        subscriber.subscribed = true;
+        subscriber.subscribedAt = new Date();
+        await subscriber.save();
+        
+        // Send welcome back email
+        await sendSubscriptionEmail(email);
+        
+        return res.status(200).json({ message: 'Welcome back! You have been re-subscribed' });
+      }
+    }
+    
+    // Create new subscriber
+    subscriber = new Newsletter({ email });
+    await subscriber.save();
+    
+    // Send confirmation email
+    const emailSent = await sendSubscriptionEmail(email);
+    
+    if (emailSent) {
+      res.status(201).json({ message: 'Subscribed successfully! Check your email for confirmation.' });
+    } else {
+      res.status(201).json({ 
+        message: 'Subscribed successfully! Email confirmation could not be sent.',
+        warning: 'Email service issue'
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get all newsletter subscribers (for admin)
+app.get('/api/newsletter/subscribers', async (req, res) => {
+  try {
+    const subscribers = await Newsletter.find({ subscribed: true });
+    res.status(200).json({
+      count: subscribers.length,
+      subscribers: subscribers
+    });
+  } catch (error) {
+    res.status (500).json({ error: error.message });
+  }
+}
+);
+// Unsubscribe endpoint 
+  
+
 
 // Run seed data function
 seedData();
