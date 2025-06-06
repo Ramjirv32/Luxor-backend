@@ -373,6 +373,33 @@ app.get('/api/rooms/list/all', async (req, res) => {
   }
 });
 
+// Add this route to get counts of rooms per hotel
+app.get('/api/debug/hotels/rooms', async (req, res) => {
+  try {
+    // Get all hotels
+    const hotels = await Hotel.find({}).select('_id name city');
+    
+    // For each hotel, count its rooms
+    const hotelRoomCounts = await Promise.all(
+      hotels.map(async (hotel) => {
+        const roomCount = await Room.countDocuments({ hotel: hotel._id });
+        return {
+          hotelId: hotel._id,
+          hotelName: hotel.name,
+          city: hotel.city,
+          roomCount
+        };
+      })
+    );
+    
+    res.status(200).json({
+      totalHotels: hotels.length,
+      hotels: hotelRoomCounts
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 app.get("/", (req, res) => {
   res.send("Hello from the server");
