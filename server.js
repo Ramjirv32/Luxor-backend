@@ -14,6 +14,18 @@ import Newsletter from './models/Newsletter.js';
 import seedData from './utils/seed.js';
 import { sendSubscriptionEmail } from './utils/emailService.js';
 
+// Add this import near the top with your other imports
+import searchRoutes from './api/searchRoutes.js';
+
+// Add near the top with your other imports
+import searchBarRoutes from './api/searchbar.js';
+
+// Add this import near the top with your other imports
+import roomDetailsApi from './api/roomDetailsApi.js';
+
+// Add this import near your other imports
+import roomApi from './api/roomApi.js';
+
 dotenv.config();
 
 const app = express();
@@ -111,11 +123,19 @@ app.post('/api/hotels', async (req, res) => {
   try {
     const { name, address, contact, ownerId, city } = req.body;
     
+    // Check if ownerId is a valid ObjectId
+    if (ownerId && !mongoose.Types.ObjectId.isValid(ownerId)) {
+      return res.status(400).json({ 
+        error: "Invalid owner ID format", 
+        message: "The provided ownerId is not a valid MongoDB ObjectId"
+      });
+    }
+    
     const hotel = new Hotel({
       name,
       address,
       contact,
-      owner: ownerId,
+      owner: ownerId ? mongoose.Types.ObjectId(ownerId) : null,
       city
     });
     
@@ -179,6 +199,7 @@ app.get('/api/rooms', async (req, res) => {
   }
 });
 
+// Add this route or modify your existing rooms/:id route
 app.get('/api/rooms/:id', async (req, res) => {
   try {
     console.log(`Looking for room with ID: ${req.params.id}`);
@@ -192,14 +213,35 @@ app.get('/api/rooms/:id', async (req, res) => {
     
     if (!room) {
       console.log(`Room not found with ID: ${req.params.id}`);
-      return res.status(404).json({ message: 'Room not found' });
+      return res.status(404).json({ message: "Room not found" });
     }
     
-    console.log(`Found room: ${room._id}, hotel: ${room.hotel ? room.hotel.name : 'No hotel'}`);
-    res.status(200).json(room);
+    // Return the room with a properly formatted structure
+    return res.status(200).json({
+      _id: room._id,
+      id: room._id, // Add this for frontend compatibility
+      roomType: room.roomType,
+      pricePerNight: room.pricePerNight,
+      capacity: room.capacity || 2,
+      bedType: room.bedType || "King",
+      amenities: room.amenities || [],
+      images: room.images || [],
+      description: room.description || "",
+      isAvailable: room.isAvailable !== false,
+      hotel: {
+        id: room.hotel._id, // Add this for frontend compatibility
+        _id: room.hotel._id,
+        name: room.hotel.name,
+        address: room.hotel.address,
+        city: room.hotel.city,
+        contact: room.hotel.contact || "Not Available",
+        description: room.hotel.description || `A beautiful hotel in ${room.hotel.city}`
+      }
+    });
+    
   } catch (error) {
     console.error(`Error fetching room: ${error.message}`);
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: "Server error", error: error.message });
   }
 });
 
@@ -477,6 +519,18 @@ app.get('/api/newsletter/subscribers', async (req, res) => {
 // Unsubscribe endpoint 
   
 
+
+// Add this line after your other app.use() statements
+app.use('/api', searchRoutes);
+
+// Make sure this line exists later in the file
+app.use('/api', searchBarRoutes);
+
+// Add this line after your other app.use() statements
+app.use('/api', roomDetailsApi);
+
+// Add this middleware after your other app.use() statements
+app.use('/api', roomApi);
 
 // Run seed data function
 seedData();

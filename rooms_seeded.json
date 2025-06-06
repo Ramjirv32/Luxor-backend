@@ -1,0 +1,524 @@
+[
+  {
+    "hotel": "684336483368122f5502d5df",
+    "roomType": "Deluxe Sea View",
+    "pricePerNight": "8,500",
+    "capacity": 2,
+    "bedType": "King",
+    "amenities": [
+      "Balcony",
+      "Mountain View",
+      "Coffee Maker",
+      "Private Bathroom",
+      "Ocean View",
+      "Room Service",
+      "Sea View",
+      "Balcony"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Experience luxury with our spacious Deluxe Sea View room featuring panoramic views of the Bay of Bengal. Perfect for couples seeking a romantic getaway.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.989Z",
+    "updatedAt": "2025-06-06T18:41:12.989Z",
+    "_id": "684336483368122f5502d5e9",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5df",
+    "roomType": "Premium Ocean Suite",
+    "pricePerNight": "15,000",
+    "capacity": 3,
+    "bedType": "King + Sofa Bed",
+    "amenities": [
+      "Work Desk",
+      "Air Conditioning",
+      "Coffee Maker",
+      "Bathtub",
+      "Free WiFi",
+      "Room Service",
+      "Balcony",
+      "Ocean View",
+      "Private Balcony",
+      "In-room Dining"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Our most luxurious offering, the Premium Ocean Suite features a separate living area, private balcony, and unparalleled ocean views for an unforgettable stay.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5ea",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5df",
+    "roomType": "Family Beach Room",
+    "pricePerNight": "12,500",
+    "capacity": 4,
+    "bedType": "2 Queen Beds",
+    "amenities": [
+      "Free WiFi",
+      "Mountain View",
+      "Air Conditioning",
+      "Room Service",
+      "Queen Size Bed",
+      "Beach Access",
+      "Family Friendly"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Perfect for families, our spacious Family Beach Room offers comfortable accommodations with beach access and all the amenities you need for a fun family vacation.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5eb",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e0",
+    "roomType": "Executive Suite",
+    "pricePerNight": "12,000",
+    "capacity": 2,
+    "bedType": "King",
+    "amenities": [
+      "Free Breakfast",
+      "Swimming Pool",
+      "Mountain View",
+      "Room Service",
+      "In-room Safe",
+      "Jacuzzi",
+      "City View",
+      "Business Center Access"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Our Executive Suite is perfect for business travelers, featuring a dedicated work area, high-speed internet, and luxurious amenities to ensure a productive stay.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5ec",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e0",
+    "roomType": "Family Suite",
+    "pricePerNight": "18,000",
+    "capacity": 5,
+    "bedType": "King + 2 Twin Beds",
+    "amenities": [
+      "King Size Bed",
+      "Balcony",
+      "Mini Bar",
+      "In-room Safe",
+      "Air Conditioning",
+      "City View",
+      "Two Bedrooms",
+      "Living Room",
+      "Kitchen"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Spacious family accommodations featuring a master bedroom and separate children's room, giving everyone their own space while staying connected.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5ed",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e0",
+    "roomType": "Deluxe Twin Room",
+    "pricePerNight": "9,500",
+    "capacity": 2,
+    "bedType": "2 Twin Beds",
+    "amenities": [
+      "Bathtub",
+      "In-room Safe",
+      "Balcony",
+      "Ocean View",
+      "Free WiFi",
+      "Queen Size Bed"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Comfortable accommodations featuring two twin beds, perfect for friends or colleagues traveling together who prefer separate sleeping arrangements.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5ee",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e1",
+    "roomType": "Luxury King Room",
+    "pricePerNight": "9,800",
+    "capacity": 2,
+    "bedType": "King",
+    "amenities": [
+      "Air Conditioning",
+      "Ocean View",
+      "Mini Bar",
+      "Free WiFi",
+      "Coffee Maker",
+      "Balcony",
+      "King Bed",
+      "City View"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Our Luxury King Room combines elegant décor with modern amenities, featuring a plush king-size bed and a stunning city view of Chennai's skyline.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5ef",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e1",
+    "roomType": "Heritage Suite",
+    "pricePerNight": "14,500",
+    "capacity": 3,
+    "bedType": "King + Day Bed",
+    "amenities": [
+      "City View",
+      "Air Conditioning",
+      "Flat-screen TV",
+      "Private Bathroom",
+      "Queen Size Bed",
+      "Ocean View",
+      "Room Service",
+      "Heritage Design",
+      "Lounge Area"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Experience the perfect blend of historical architecture and modern luxury in our Heritage Suite, featuring antique furniture and contemporary amenities.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5f0",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e2",
+    "roomType": "Garden Suite",
+    "pricePerNight": "11,500",
+    "capacity": 2,
+    "bedType": "Queen",
+    "amenities": [
+      "Bathtub",
+      "Private Bathroom",
+      "Air Conditioning",
+      "Queen Size Bed",
+      "King Size Bed",
+      "Private Garden",
+      "Outdoor Seating",
+      "Kitchenette"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Nestled amidst lush greenery, our Garden Suite offers a private garden space where you can unwind and reconnect with nature without sacrificing modern comforts.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5f1",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e2",
+    "roomType": "Business Room",
+    "pricePerNight": "8,800",
+    "capacity": 1,
+    "bedType": "Queen",
+    "amenities": [
+      "Work Desk",
+      "Room Service",
+      "City View",
+      "Free WiFi",
+      "Flat-screen TV",
+      "Air Conditioning",
+      "Business Desk",
+      "Ergonomic Chair"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Designed with corporate travelers in mind, our Business Room offers a comfortable work environment with high-speed internet and ergonomic furniture.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5f2",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e3",
+    "roomType": "Colonial Suite",
+    "pricePerNight": "9,500",
+    "capacity": 2,
+    "bedType": "Four-poster King",
+    "amenities": [
+      "Swimming Pool",
+      "In-room Safe",
+      "Free Breakfast",
+      "City View",
+      "Room Service",
+      "Heritage Architecture",
+      "Garden View",
+      "Breakfast Included"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Step back in time with our Colonial Suite featuring authentic period furniture, high ceilings, and a charming garden view that captures Pondicherry's French colonial past.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5f3",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e3",
+    "roomType": "French Quarters Room",
+    "pricePerNight": "7,500",
+    "capacity": 2,
+    "bedType": "Queen",
+    "amenities": [
+      "Bathtub",
+      "Air Conditioning",
+      "Free WiFi",
+      "Mountain View",
+      "City View",
+      "Ocean View",
+      "Colonial Architecture",
+      "Street View"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Experience the charm of old Pondicherry in our French Quarters Room, featuring tiled floors, antique furniture, and windows that open to the historic streets.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5f4",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e4",
+    "roomType": "Beach Villa",
+    "pricePerNight": "14,000",
+    "capacity": 4,
+    "bedType": "King + 2 Twin Beds",
+    "amenities": [
+      "Balcony",
+      "Room Service",
+      "Free WiFi",
+      "Swimming Pool",
+      "Ocean View",
+      "Free Breakfast",
+      "Private Beach Access",
+      "Sea View",
+      "Infinity Pool"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Our exclusive Beach Villa offers direct access to the pristine beaches of Pondicherry, with a private terrace where you can enjoy the sea breeze and stunning sunsets.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5f5",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e4",
+    "roomType": "Ocean View Room",
+    "pricePerNight": "8,500",
+    "capacity": 2,
+    "bedType": "Queen",
+    "amenities": [
+      "Bathtub",
+      "Room Service",
+      "Queen Size Bed",
+      "Balcony",
+      "In-room Safe",
+      "Ocean View",
+      "Private Balcony"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Wake up to the sound of waves in our Ocean View Room, featuring a private balcony where you can enjoy your morning coffee with panoramic views of the sea.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5f6",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e5",
+    "roomType": "French Colonial Room",
+    "pricePerNight": "7,800",
+    "capacity": 2,
+    "bedType": "Queen",
+    "amenities": [
+      "King Size Bed",
+      "Private Bathroom",
+      "Balcony",
+      "Queen Size Bed",
+      "Free Breakfast",
+      "Period Furniture",
+      "Courtyard View",
+      "Continental Breakfast"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Our French Colonial Room features authentic decor, high ceilings with vintage fans, and large windows overlooking the charming courtyards of the French Quarter.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5f7",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e5",
+    "roomType": "Heritage Balcony Suite",
+    "pricePerNight": "10,500",
+    "capacity": 3,
+    "bedType": "King + Day Bed",
+    "amenities": [
+      "Bathtub",
+      "Balcony",
+      "Free Breakfast",
+      "Queen Size Bed",
+      "Ocean View",
+      "Free WiFi",
+      "Private Balcony",
+      "Street View"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Experience the elegance of French colonial architecture with modern amenities in our Heritage Balcony Suite, featuring a private balcony overlooking the historic streets.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5f8",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e6",
+    "roomType": "Spiritual Retreat Room",
+    "pricePerNight": "5,500",
+    "capacity": 1,
+    "bedType": "Twin",
+    "amenities": [
+      "Room Service",
+      "Balcony",
+      "Flat-screen TV",
+      "Coffee Maker",
+      "Meditation Area",
+      "Organic Meals",
+      "Garden Access"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Our simple yet comfortable Spiritual Retreat Room offers a peaceful environment for meditation and reflection, inspired by the principles of Sri Aurobindo.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5f9",
+    "__v": 0
+  },
+  {
+    "hotel": "684336483368122f5502d5e6",
+    "roomType": "Wellness Suite",
+    "pricePerNight": "7,200",
+    "capacity": 2,
+    "bedType": "Queen",
+    "amenities": [
+      "Bathtub",
+      "Balcony",
+      "Air Conditioning",
+      "Free Breakfast",
+      "In-room Safe",
+      "Yoga Mat",
+      "Meditation Cushions",
+      "Herbal Tea Station"
+    ],
+    "images": [
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png",
+      "roomImg11.png"
+    ],
+    "description": "Designed for holistic wellbeing, our Wellness Suite features natural materials, ample meditation space, and proximity to the yoga pavilion for a rejuvenating stay.",
+    "isAvailable": true,
+    "createdAt": "2025-06-06T18:41:12.990Z",
+    "updatedAt": "2025-06-06T18:41:12.990Z",
+    "_id": "684336483368122f5502d5fa",
+    "__v": 0
+  }
+]
