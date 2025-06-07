@@ -416,59 +416,59 @@ app.get("/",()=>{
   res.send("Hello from the server");
 })
 // Booking Routes
-app.get('/api/bookings', async (req, res) => {
-  try {
-    const { userId } = req.query;
+// app.get('/api/bookings', async (req, res) => {
+//   try {
+//     const { userId } = req.query;
     
-    const bookings = await Booking.find({ user: userId })
-      .populate('user')
-      .populate({
-        path: 'room',
-        populate: {
-          path: 'hotel'
-        }
-      })
-      .populate('hotel');
+//     const bookings = await Booking.find({ user: userId })
+//       .populate('user')
+//       .populate({
+//         path: 'room',
+//         populate: {
+//           path: 'hotel'
+//         }
+//       })
+//       .populate('hotel');
     
-    res.status(200).json(bookings);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+//     res.status(200).json(bookings);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
 
-app.post('/api/bookings', async (req, res) => {
-  try {
-    const {
-      userId,
-      roomId,
-      hotelId,
-      checkInDate,
-      checkOutDate,
-      totalPrice,
-      guests,
-      paymentMethod,
-      isPaid
-    } = req.body;
+// app.post('/api/bookings', async (req, res) => {
+//   try {
+//     const {
+//       userId,
+//       roomId,
+//       hotelId,
+//       checkInDate,
+//       checkOutDate,
+//       totalPrice,
+//       guests,
+//       paymentMethod,
+//       isPaid
+//     } = req.body;
     
-    const booking = new Booking({
-      user: userId,
-      room: roomId,
-      hotel: hotelId,
-      checkInDate,
-      checkOutDate,
-      totalPrice,
-      guests,
-      status: 'pending',
-      paymentMethod,
-      isPaid
-    });
+//     const booking = new Booking({
+//       user: userId,
+//       room: roomId,
+//       hotel: hotelId,
+//       checkInDate,
+//       checkOutDate,
+//       totalPrice,
+//       guests,
+//       status: 'pending',
+//       paymentMethod,
+//       isPaid
+//     });
     
-    await booking.save();
-    res.status(201).json(booking);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+//     await booking.save();
+//     res.status(201).json(booking);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
 
 // Dashboard Route
 app.get('/api/dashboard/:userId', async (req, res) => {
@@ -589,10 +589,9 @@ app.use('/api', searchRoutes);
 // Make sure this line exists later in the file
 app.use('/api', searchBarRoutes);
 
-// Add this line after your other app.use() statements
 app.use('/api', roomDetailsApi);
 
-// Add this middleware after your other app.use() statements
+
 app.use('/api', roomApi);
 
 app.use('/api/auth', authRoutes);
