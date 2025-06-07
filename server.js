@@ -26,6 +26,8 @@ import roomDetailsApi from './api/roomDetailsApi.js';
 // Add this import near your other imports
 import roomApi from './api/roomApi.js';
 
+import authRoutes from './api/authRoutes.js';
+
 dotenv.config();
 
 const app = express();
@@ -46,7 +48,11 @@ mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log('MongoDB Connected'))
+.then(() => {
+  console.log('MongoDB Connected');
+  // Run seed data when database connects (optional)
+  seedData().then(() => console.log('Seed check completed'));
+})
 .catch(err => console.log('MongoDB Connection Error:', err));
 
 // API Routes
@@ -587,6 +593,13 @@ app.use('/api', roomDetailsApi);
 
 // Add this middleware after your other app.use() statements
 app.use('/api', roomApi);
+
+app.use('/api/auth', authRoutes);
+
+// Catch all other routes
+app.use((req, res) => {
+  res.status(404).json({ error: 'Route not found' });
+});
 
 // Run seed data function
 seedData();
