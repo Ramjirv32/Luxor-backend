@@ -60,7 +60,6 @@ router.get('/search', async (req, res) => {
       ]
     });
     
-    // Filter out rooms that are booked during the specified dates
     const bookedRoomIds = overlappingBookings.map(booking => booking.room.toString());
     const availableRooms = rooms.filter(room => !bookedRoomIds.includes(room._id.toString()));
     
