@@ -27,6 +27,7 @@ import roomDetailsApi from './api/roomDetailsApi.js';
 import roomApi from './api/roomApi.js';
 
 import authRoutes from './api/authRoutes.js';
+import bookingRoutes from './api/bookingRoutes.js';  // Add this line
 
 dotenv.config();
 
@@ -595,6 +596,7 @@ app.use('/api', roomDetailsApi);
 app.use('/api', roomApi);
 
 app.use('/api/auth', authRoutes);
+app.use('/api/bookings', bookingRoutes);  // Add this line
 
 // Catch all other routes
 app.use((req, res) => {
