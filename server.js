@@ -534,23 +534,23 @@ app.post('/api/newsletter/subscribe', async (req, res) => {
       if (subscriber.subscribed) {
         return res.status(200).json({ message: 'Email already subscribed' });
       } else {
-        // Re-subscribe
+     
         subscriber.subscribed = true;
         subscriber.subscribedAt = new Date();
         await subscriber.save();
         
-        // Send welcome back email
+        
         await sendSubscriptionEmail(email);
         
         return res.status(200).json({ message: 'Welcome back! You have been re-subscribed' });
       }
     }
     
-    // Create new subscriber
+    
     subscriber = new Newsletter({ email });
     await subscriber.save();
     
-    // Send confirmation email
+  
     const emailSent = await sendSubscriptionEmail(email);
     
     if (emailSent) {
@@ -566,7 +566,7 @@ app.post('/api/newsletter/subscribe', async (req, res) => {
   }
 });
 
-// Get all newsletter subscribers (for admin)
+
 app.get('/api/newsletter/subscribers', async (req, res) => {
   try {
     const subscribers = await Newsletter.find({ subscribed: true });
@@ -585,17 +585,15 @@ app.get('/api/newsletter/subscribers', async (req, res) => {
 
 
 
-// Add this endpoint to your server.js file
 app.post('/api/port', async (req, res) => {
   const { name, email, message } = req.body;
 
-  // Validate inputs
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'All fields are required.' });
   }
 
   try {
-    // Set up Nodemailer transport using your environment variables
+   
     const transporter = nodemailer.createTransport({
       service: process.env.EMAIL_SERVICE,
       auth: {
@@ -604,7 +602,7 @@ app.post('/api/port', async (req, res) => {
       },
     });
 
-    // Email content - sending to yourself (same email as sender)
+    
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER, // Sending to yourself
@@ -649,6 +647,21 @@ app.post('/api/port', async (req, res) => {
 
 
 
+
+// Add this before using userMailOptions
+const userMailOptions = {
+  from: process.env.EMAIL_USER,
+  to: email, // Send to the user's email
+  subject: 'Thank you for contacting us',
+  html: `
+    <div style="font-family: Arial, sans-serif; padding: 20px;">
+      <h2>Thank you for reaching out!</h2>
+      <p>Hello ${name},</p>
+      <p>We've received your message and will get back to you soon.</p>
+      <p>Best regards,<br />Ramji</p>
+    </div>
+  `
+};
 
 
 
