@@ -112,7 +112,7 @@ async function seedData() {
         updatedAt: new Date()
       },
       
-      // Pondicherry Hotels
+     
       {
         name: "Heritage Mansion",
         address: "White Town, Pondicherry 605001",
@@ -163,12 +163,12 @@ async function seedData() {
       }
     ];
     
-    // Insert all hotels
+  
     const hotelResults = await HotelModel.insertMany(hotelData);
     console.log(`Successfully inserted ${hotelResults.length} hotels`);
     fs.writeFileSync('hotels_seeded.json', JSON.stringify(hotelResults, null, 2));
     
-    // Create mapping of hotel names to IDs for room assignment
+   
     const hotelMap = {};
     hotelResults.forEach(hotel => {
       hotelMap[hotel.name] = hotel._id;
