@@ -41,6 +41,7 @@ app.use(cors({
   credentials: true
 }));
 
+
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -415,6 +416,7 @@ app.get("/", (req, res) => {
 app.get("/",()=>{
   res.send("Hello from the server");
 })
+
 // Booking Routes
 // app.get('/api/bookings', async (req, res) => {
 //   try {
@@ -471,6 +473,31 @@ app.get("/",()=>{
 // });
 
 // Dashboard Route
+
+
+// Add this to your server.js file or routes file
+// Get rooms by hotel ID
+app.get('/api/hotels/:hotelId/rooms', async (req, res) => {
+  try {
+    const { hotelId } = req.params;
+    
+    // Validate hotelId
+    if (!mongoose.Types.ObjectId.isValid(hotelId)) {
+      return res.status(400).json({ 
+        message: 'Invalid hotel ID format'
+      });
+    }
+    
+    // Find rooms by hotel ID
+    const rooms = await Room.find({ hotel: hotelId });
+    
+    res.status(200).json(rooms);
+  } catch (error) {
+    console.error('Error fetching hotel rooms:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.get('/api/dashboard/:userId', async (req, res) => {
   try {
     const userId = req.params.userId;
@@ -584,89 +611,6 @@ app.get('/api/newsletter/subscribers', async (req, res) => {
 
 
 
-
-app.post('/api/port', async (req, res) => {
-  const { name, email, message } = req.body;
-
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: 'All fields are required.' });
-  }
-
-  try {
-   
-    const transporter = nodemailer.createTransport({
-      service: process.env.EMAIL_SERVICE,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
-
-    
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Sending to yourself
-      subject: `Luxor Stays: New Contact Form Message from ${name}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 5px;">
-          <h2 style="color: #333; border-bottom: 1px solid #e0e0e0; padding-bottom: 10px;">New Contact Form Submission</h2>
-          
-          <div style="margin: 20px 0;">
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
-          </div>
-          
-          <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
-            <h3 style="margin-top: 0;">Message:</h3>
-            <p style="white-space: pre-line;">${message}</p>
-          </div>
-          
-          <p style="margin-top: 20px; font-size: 12px; color: #777;">
-            This message was sent from the Luxor Stays contact form.
-          </p>
-        </div>
-      `
-    };
-
-    // Send acknowledgment email to the user
-    
-
-    // Send email to owner
-    await transporter.sendMail(mailOptions);
-    
-    // Send acknowledgment to user
-    await transporter.sendMail(userMailOptions);
-    
-    res.status(200).json({ message: 'Your message has been sent. Thank you for contacting us!' });
-  } catch (error) {
-    console.error('Error sending contact form email:', error);
-    res.status(500).json({ error: 'Failed to send your message. Please try again later.' });
-  }
-});
-
-
-
-
-// Add this before using userMailOptions
-const userMailOptions = {
-  from: process.env.EMAIL_USER,
-  to: email, // Send to the user's email
-  subject: 'Thank you for contacting us',
-  html: `
-    <div style="font-family: Arial, sans-serif; padding: 20px;">
-      <h2>Thank you for reaching out!</h2>
-      <p>Hello ${name},</p>
-      <p>We've received your message and will get back to you soon.</p>
-      <p>Best regards,<br />Ramji</p>
-    </div>
-  `
-};
-
-
-
-// Unsubscribe endpoint 
-  
 
 
 // Add this line after your other app.use() statements
