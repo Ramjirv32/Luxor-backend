@@ -25,7 +25,7 @@ import roomDetailsApi from './api/roomDetailsApi.js';
 
 // Add this import near your other imports
 import roomApi from './api/roomApi.js';
-
+import roomsApi from './api/roomsApi.js';
 import authRoutes from './api/authRoutes.js';
 import bookingRoutes from './api/bookingRoutes.js';  // Add this line
 
@@ -612,7 +612,6 @@ app.get('/api/newsletter/subscribers', async (req, res) => {
 
 
 
-
 // Add this line after your other app.use() statements
 app.use('/api', searchRoutes);
 
@@ -624,8 +623,10 @@ app.use('/api', roomDetailsApi);
 
 app.use('/api', roomApi);
 
+app.use('/api', roomsApi);  // Add this line
+
 app.use('/api/auth', authRoutes);
-app.use('/api/bookings', bookingRoutes);  // Add this line
+app.use('/api/bookings', bookingRoutes);  
 
 // Catch all other routes
 app.use((req, res) => {
