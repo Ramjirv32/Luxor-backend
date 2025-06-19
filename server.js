@@ -23,7 +23,7 @@ import searchBarRoutes from './api/searchbar.js';
 // Add this import near the top with your other imports
 import roomDetailsApi from './api/roomDetailsApi.js';
 
-// Add this import near your other imports
+
 import roomApi from './api/roomApi.js';
 import roomsApi from './api/roomsApi.js';
 import authRoutes from './api/authRoutes.js';

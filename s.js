@@ -77,6 +77,34 @@ async function seedData() {
     await RoomModel.insertMany(roomData, { ordered: false });
     console.log('New data inserted successfully.');
 
+    // Add sample rooms for filtering testing
+    const sampleRooms = [
+      {
+        hotel: '660f9b3a4f6e4a001abcde12', // Replace with an actual hotel ID from your seeded data
+        roomType: 'VILLA',
+        pricePerNight: '15000',
+        capacity: 4,
+        bedType: 'King',
+        amenities: ['Private Pool', 'Wifi'],
+        images: ['https://example.com/image1.jpg', 'https://example.com/image2.jpg'],
+        description: 'Luxurious villa with private pool and high-speed WiFi.',
+        isAvailable: true
+      },
+      {
+        hotel: '660f9b3a4f6e4a001abcde12', // Use the same or another hotel ID
+        roomType: 'APARTMENT',
+        pricePerNight: '8000',
+        capacity: 2,
+        bedType: 'Queen',
+        amenities: ['Shared Pool', 'Parking'],
+        images: ['https://example.com/image3.jpg'],
+        description: 'Cozy apartment with shared amenities.',
+        isAvailable: true
+      }
+    ];
+    // Insert sample rooms only if they don't exist
+    await RoomModel.insertMany(sampleRooms).catch(err => console.log('Sample rooms may already exist or error occurred:', err));
+
     console.log('Seeding complete!');
 
   } catch (error) {
